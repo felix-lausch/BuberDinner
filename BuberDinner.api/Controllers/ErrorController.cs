@@ -4,7 +4,7 @@ using BuberDinner.domain;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-public class ErrorsController : ControllerBase
+public class ErrorController : ControllerBase
 {
     [Route("/error")] 
     public IActionResult Error()
