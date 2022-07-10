@@ -1,31 +1,36 @@
 namespace BuberDinner.Api.Controllers;
 
 using BuberDinner.api.Controllers;
-using BuberDinner.Application.Services.Authentication;
+using BuberDinner.application.Authentication.Commands;
+using BuberDinner.application.Authentication.Queries;
+using BuberDinner.application.Services.Authentication.Common;
 using BuberDinner.Contracts.Authentication;
 using BuberDinner.domain.Common.Errors;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 
 [Route("auth")]
 public class AuthenticationController : ApiController
 {
-    private readonly IAuthenticationService authenticationService;
+    private readonly ISender mediatr;
 
     public AuthenticationController(
-        IAuthenticationService authenticationService)
+        ISender mediatr)
     {
-        this.authenticationService = authenticationService;
+        this.mediatr = mediatr;
     }
 
     [HttpPost("register")]
-    public IActionResult Register(RegisterRequest request)
+    public async Task<IActionResult> Register(RegisterRequest request)
     {
-        var registerResult = authenticationService.Register(
+        var registerCommand = new RegisterCommand(
             request.FirstName,
             request.LastName,
             request.Email,
             request.Password);
+
+        var registerResult = await mediatr.Send(registerCommand);
 
         return registerResult.Match(
             authResult => Ok(MapAuthResult(authResult)),
@@ -33,11 +38,13 @@ public class AuthenticationController : ApiController
     }
 
     [HttpPost("login")]
-    public IActionResult Login(LoginRequest request)
+    public async Task<IActionResult> Login(LoginRequest request)
     {
-        var loginResult = authenticationService.Login(
+        var loginQuery = new LoginQuery(
             request.Email,
             request.Password);
+
+        var loginResult = await mediatr.Send(loginQuery);
 
         if (loginResult.IsError && loginResult.FirstError == Errors.Authentication.InvalidCredentials)
         {
