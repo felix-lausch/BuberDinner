@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.domain", "Buber
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.infrastructure", "BuberDinner.infrastructure\BuberDinner.infrastructure.csproj", "{FB4F5EB3-29B7-4EB9-99A4-337E4ECFBF25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.IntegrationTests", "BuberDinner.IntegrationTests\BuberDinner.IntegrationTests.csproj", "{CE8D7B1B-610F-4812-B42C-EE24046764C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FB4F5EB3-29B7-4EB9-99A4-337E4ECFBF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB4F5EB3-29B7-4EB9-99A4-337E4ECFBF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB4F5EB3-29B7-4EB9-99A4-337E4ECFBF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE8D7B1B-610F-4812-B42C-EE24046764C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE8D7B1B-610F-4812-B42C-EE24046764C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE8D7B1B-610F-4812-B42C-EE24046764C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE8D7B1B-610F-4812-B42C-EE24046764C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

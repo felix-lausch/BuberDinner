@@ -16,4 +16,9 @@ public class UserRepository : IUserRepository
     {
         return users.SingleOrDefault(user => user.Email == email);
     }
+
+    internal static void ClearRepo()
+    {
+        users.Clear();
+    }
 }
