@@ -1,39 +1,38 @@
 namespace BuberDinner.Api.Controllers;
 
 using BuberDinner.api.Controllers;
+using BuberDinner.api.Filters;
 using BuberDinner.application.Authentication.Commands;
 using BuberDinner.application.Authentication.Queries;
 using BuberDinner.application.Services.Authentication.Common;
 using BuberDinner.Contracts.Authentication;
 using BuberDinner.domain.Common.Errors;
+using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Mvc.Filters;
 
 [Route("auth")]
 public class AuthenticationController : ApiController
 {
     private readonly ISender mediatr;
+    private readonly IMapper mapper;
 
-    public AuthenticationController(
-        ISender mediatr)
+    public AuthenticationController(IMapper mapper, ISender mediatr)
     {
+        this.mapper = mapper;
         this.mediatr = mediatr;
     }
 
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterRequest request)
     {
-        var registerCommand = new RegisterCommand(
-            request.FirstName,
-            request.LastName,
-            request.Email,
-            request.Password);
+        var registerCommand = mapper.Map<RegisterCommand>(request);
 
         var registerResult = await mediatr.Send(registerCommand);
 
         return registerResult.Match(
-            authResult => Ok(MapAuthResult(authResult)),
+            authResult => Ok(mapper.Map<AuthenticationResponse>(authResult)),
             errors => Problem(errors));
     }
 
