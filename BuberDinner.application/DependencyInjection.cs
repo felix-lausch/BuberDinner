@@ -1,9 +1,6 @@
 namespace BuberDinner.Application;
 
-using BuberDinner.application.Authentication.Commands;
 using BuberDinner.application.Common.Behaviors;
-using BuberDinner.application.Services.Authentication.Common;
-using ErrorOr;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
