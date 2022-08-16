@@ -20,7 +20,7 @@ public class IntegrationTest
         var appFactory = new WebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
             {
-                builder.UseSetting("https_port", "5001");
+                builder.UseSetting("https_port", "5001"); //TODO: find out if this is really needed
                 builder.ConfigureServices(services =>
                 {
                     // Ensure clean repo for every test
@@ -29,9 +29,6 @@ public class IntegrationTest
                         UserRepository.ClearRepo();
                     }
                 });
-
-                //builder.ConfigureServices(services => services.)
-
             });
 
         httpClient = appFactory.CreateClient();
