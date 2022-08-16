@@ -20,6 +20,7 @@ public class IntegrationTest
         var appFactory = new WebApplicationFactory<Program>()
             .WithWebHostBuilder(builder =>
             {
+                builder.UseSetting("https_port", "5001");
                 builder.ConfigureServices(services =>
                 {
                     // Ensure clean repo for every test
@@ -28,6 +29,8 @@ public class IntegrationTest
                         UserRepository.ClearRepo();
                     }
                 });
+
+                //builder.ConfigureServices(services => services.)
 
             });
 
@@ -41,11 +44,13 @@ public class IntegrationTest
         var request = new RegisterRequest(
             "TestFirstName",
             "TestLastName",
-            "TestEmail",
+            "TestEmail@mail.com",
             "TestPassword"
         );
 
         var response = await httpClient.PostAsJsonAsync("auth/register", request, jsonSerializerOptions);
+
+        var rawRes = await response.Content.ReadAsStringAsync();
 
         var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(jsonSerializerOptions);
         return responseBody!;

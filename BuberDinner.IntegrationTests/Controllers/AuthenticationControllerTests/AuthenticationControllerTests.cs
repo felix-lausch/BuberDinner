@@ -14,7 +14,7 @@ public class AuthenticationControllerTests : IntegrationTest
         var request = new RegisterRequest(
             "TestFirstName",
             "TestLastName",
-            "TestEmail",
+            "TestEmail@mail.com",
             "TestPassword"
         );
 
@@ -30,7 +30,7 @@ public class AuthenticationControllerTests : IntegrationTest
         Assert.AreNotEqual(string.Empty, responseBody.Token);
         Assert.AreEqual("TestFirstName", responseBody.FirstName);
         Assert.AreEqual("TestLastName", responseBody.LastName);
-        Assert.AreEqual("TestEmail", responseBody.Email);
+        Assert.AreEqual("TestEmail@mail.com", responseBody.Email);
     }
 
     [TestMethod]
@@ -41,7 +41,7 @@ public class AuthenticationControllerTests : IntegrationTest
         var request = new RegisterRequest(
             "TestFirstName",
             "TestLastName",
-            "TestEmail",
+            "TestEmail@mail.com",
             "TestPassword"
         );
 
@@ -62,7 +62,7 @@ public class AuthenticationControllerTests : IntegrationTest
         await SetupUser();
 
         var request = new LoginRequest(
-            "TestEmail",
+            "TestEmail@mail.com",
             "TestPassword"
         );
 
@@ -78,14 +78,14 @@ public class AuthenticationControllerTests : IntegrationTest
         Assert.AreNotEqual(string.Empty, responseBody.Token);
         Assert.AreEqual("TestFirstName", responseBody.FirstName);
         Assert.AreEqual("TestLastName", responseBody.LastName);
-        Assert.AreEqual("TestEmail", responseBody.Email);
+        Assert.AreEqual("TestEmail@mail.com", responseBody.Email);
     }
 
     [TestMethod]
     public async Task LoginReturnsUnauthorizedOnUserDoesntExist()
     {
         var request = new LoginRequest(
-            "TestEmail",
+            "TestEmail@mail.com",
             "TestPassword"
         );
 
@@ -106,7 +106,7 @@ public class AuthenticationControllerTests : IntegrationTest
         await SetupUser();
 
         var request = new LoginRequest(
-            "TestEmail",
+            "TestEmail@mail.com",
             "InvalidTestPassword"
         );
 
