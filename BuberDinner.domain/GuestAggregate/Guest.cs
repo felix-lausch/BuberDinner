@@ -1,13 +1,13 @@
 ﻿namespace BuberDinner.domain.GuestAggregate;
 
-using BuberDinner.domain.Bill.ValueObjects;
+using BuberDinner.domain.BillAggregate.ValueObjects;
 using BuberDinner.domain.Common.Models;
 using BuberDinner.domain.Common.ValueObjects;
-using BuberDinner.domain.Dinner.ValueObjects;
-using BuberDinner.domain.Guest.Entities;
-using BuberDinner.domain.Guest.ValueObjects;
-using BuberDinner.domain.MenuReview.ValueObjects;
-using BuberDinner.domain.User.ValueObjects;
+using BuberDinner.domain.DinnerAggregate.ValueObjects;
+using BuberDinner.domain.GuestAggregate.Entities;
+using BuberDinner.domain.GuestAggregate.ValueObjects;
+using BuberDinner.domain.MenuReviewAggregate.ValueObjects;
+using BuberDinner.domain.UserAggregate.ValueObjects;
 
 public class Guest : AggregateRoot<GuestId>
 {
