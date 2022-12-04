@@ -2,9 +2,11 @@
 
 using BuberDinner.api.Http;
 using ErrorOr;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
+// [Authorize] //TODO: integrate authorization
 [ApiController]
 public class ApiController : ControllerBase
 {

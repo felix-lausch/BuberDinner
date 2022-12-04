@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public sealed class Rating : ValueObject
 {
-    public double Value { get; private set; }
+    public float Value { get; private set; }
 
-    public Rating(double value)
+    public Rating(float value)
     {
         Value = value;
     }

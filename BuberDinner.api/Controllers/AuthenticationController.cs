@@ -1,7 +1,6 @@
 namespace BuberDinner.Api.Controllers;
 
 using BuberDinner.api.Controllers;
-using BuberDinner.api.Filters;
 using BuberDinner.application.Authentication.Commands;
 using BuberDinner.application.Authentication.Queries;
 using BuberDinner.application.Services.Authentication.Common;
@@ -10,7 +9,6 @@ using BuberDinner.domain.Common.Errors;
 using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 [Route("auth")]
 public class AuthenticationController : ApiController

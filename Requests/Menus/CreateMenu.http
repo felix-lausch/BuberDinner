@@ -1,0 +1,24 @@
+@host = http://localhost:5148
+@token = sdfds
+@hostId =d19cf4e8-5465-4f98-affc-5605baf59362
+
+POST {{host}}/hosts/{{hostId}}/menus
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Yummy menu",
+  "description": "a menu with yummy food",
+  "sections": [
+    {
+      "name": "Appetizers",
+      "description": "Starters",
+      "items": [
+        {
+          "name": "Fried pickles",
+          "description": "Deep fried pickles"
+        }
+      ]
+    }
+  ]
+}

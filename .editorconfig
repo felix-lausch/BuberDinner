@@ -118,3 +118,9 @@ dotnet_diagnostic.SA1602.severity = none
 
 # CS1591: XML Comment for public type
 dotnet_diagnostic.CS1591.severity = none
+
+# SA1005: Single line comments should begin with a space
+dotnet_diagnostic.SA1005.severity = none
+
+# SA1116: Parameters should begin on the line after declaration, when it spans multiple lines
+dotnet_diagnostic.SA1116.severity = none

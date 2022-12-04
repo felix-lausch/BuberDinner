@@ -5,17 +5,27 @@ using System.Collections.Generic;
 
 public sealed class AverageRating : ValueObject
 {
-    private AverageRating(double value, int ratingsCount)
+    private float? value;
+
+    private AverageRating(float value, int ratingsCount)
     {
         Value = value;
         RatingsCount = ratingsCount;
     }
 
-    public double Value { get; private set; }
+    public float? Value
+    {
+        get
+        {
+            return RatingsCount > 0 ? value : null;
+        }
+
+        private set => this.value = value;
+    }
 
     public int RatingsCount { get; private set; }
 
-    public static AverageRating CreateNew(double rating = 0, int ratingCount = 0)
+    public static AverageRating CreateNew(float rating = 0, int ratingCount = 0)
     {
         return new AverageRating(rating, ratingCount);
     }
@@ -32,7 +42,7 @@ public sealed class AverageRating : ValueObject
 
     public override IEnumerable<object> GetEqualityComponents()
     {
-        yield return Value;
+        yield return Value ?? 0;
         yield return RatingsCount;
     }
 }

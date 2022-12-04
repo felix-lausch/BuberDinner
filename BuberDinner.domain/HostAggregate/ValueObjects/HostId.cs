@@ -18,6 +18,11 @@ public class HostId : ValueObject
         return new HostId(Guid.NewGuid());
     }
 
+    public static HostId Create(string hostId)
+    {
+        return new HostId(new Guid(hostId));
+    }
+
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

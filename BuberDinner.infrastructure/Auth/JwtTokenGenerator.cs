@@ -20,7 +20,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         IOptions<JwtSettings> jwtOptions)
     {
         this.dateTimeProvider = dateTimeProvider;
-        this.jwtSettings = jwtOptions.Value;
+        jwtSettings = jwtOptions.Value;
     }
 
     public string GenerateToken(User user)
