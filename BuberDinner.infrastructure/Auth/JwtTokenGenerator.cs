@@ -2,7 +2,7 @@
 
 using BuberDinner.application.Common.Interfaces.Auth;
 using BuberDinner.application.Common.Interfaces.Services;
-using BuberDinner.domain.Entities;
+using BuberDinner.domain.User;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;

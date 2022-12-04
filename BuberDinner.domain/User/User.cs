@@ -1,4 +1,4 @@
-﻿namespace BuberDinner.domain.Entities;
+﻿namespace BuberDinner.domain.User;
 
 using System;
 

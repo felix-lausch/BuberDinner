@@ -1,4 +1,4 @@
-﻿using BuberDinner.domain.Entities;
+﻿using BuberDinner.domain.User;
 
 namespace BuberDinner.application.Common.Interfaces.Auth;
 

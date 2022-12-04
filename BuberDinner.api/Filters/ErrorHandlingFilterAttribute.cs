@@ -5,6 +5,7 @@ using System.Net;
 
 namespace BuberDinner.api.Filters;
 
+//unused alternative to ErrorController
 public class ErrorHandlingFilterAttribute : ExceptionFilterAttribute
 {
     public override void OnException(ExceptionContext context)

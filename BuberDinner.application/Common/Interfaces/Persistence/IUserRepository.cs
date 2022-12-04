@@ -1,6 +1,6 @@
 ﻿namespace BuberDinner.application.Common.Interfaces.Persistence;
 
-using BuberDinner.domain.Entities;
+using BuberDinner.domain.User;
 
 public interface IUserRepository
 {
