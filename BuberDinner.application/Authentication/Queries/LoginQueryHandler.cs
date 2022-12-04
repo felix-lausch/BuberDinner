@@ -4,7 +4,7 @@ using BuberDinner.application.Common.Interfaces.Auth;
 using BuberDinner.application.Common.Interfaces.Persistence;
 using BuberDinner.application.Services.Authentication.Common;
 using BuberDinner.domain.Common.Errors;
-using BuberDinner.domain.User;
+using BuberDinner.domain.UserAggregate;
 using ErrorOr;
 using MediatR;
 
