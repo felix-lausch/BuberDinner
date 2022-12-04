@@ -10,7 +10,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-
 public class JwtTokenGenerator : IJwtTokenGenerator
 {
     private readonly IDateTimeProvider dateTimeProvider;

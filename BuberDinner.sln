@@ -13,7 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.domain", "Buber
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.infrastructure", "BuberDinner.infrastructure\BuberDinner.infrastructure.csproj", "{FB4F5EB3-29B7-4EB9-99A4-337E4ECFBF25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.IntegrationTests", "BuberDinner.IntegrationTests\BuberDinner.IntegrationTests.csproj", "{CE8D7B1B-610F-4812-B42C-EE24046764C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.IntegrationTests", "BuberDinner.IntegrationTests\BuberDinner.IntegrationTests.csproj", "{CE8D7B1B-610F-4812-B42C-EE24046764C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B60A7F00-A32E-4540-A9B0-3EE6A09C8AA6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.Props = Directory.Build.Props
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

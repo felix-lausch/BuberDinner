@@ -5,7 +5,8 @@ using BuberDinner.domain.MenuAggregate.ValueObjects;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {
-    private MenuItem(MenuItemId id, string name, string description) : base(id)
+    private MenuItem(MenuItemId id, string name, string description)
+        : base(id)
     {
         Name = name;
         Description = description;

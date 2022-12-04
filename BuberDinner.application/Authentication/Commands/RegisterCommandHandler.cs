@@ -3,15 +3,13 @@
 using BuberDinner.application.Common.Interfaces.Auth;
 using BuberDinner.application.Common.Interfaces.Persistence;
 using BuberDinner.application.Services.Authentication.Common;
-using BuberDinner.domain.Entities;
 using BuberDinner.domain.Common.Errors;
+using BuberDinner.domain.UserAggregate;
 using ErrorOr;
 using MediatR;
 
-
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthenticationResult>>
 {
-
     private readonly IJwtTokenGenerator jwtTokenGenerator;
     private readonly IUserRepository userRepository;
 
@@ -25,7 +23,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
 
     public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
-        await Task.CompletedTask; //TODO: is this bad?
+        await Task.CompletedTask; // TODO: is this bad?
 
         if (userRepository.GetUserByEmail(command.Email) is not null)
         {

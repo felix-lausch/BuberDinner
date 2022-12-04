@@ -1,7 +1,7 @@
 ﻿namespace BuberDinner.domain.Common.Models;
 
 public abstract class AggregateRoot<TId> : Entity<TId>
-    where TId: notnull
+    where TId : notnull
 {
     public AggregateRoot(TId id)
         : base(id)

@@ -46,7 +46,7 @@ public class MenuReview : AggregateRoot<MenuReviewId>
     public DinnerId DinnerId { get; }
 
     public DateTime CreatedDateTime { get; }
-    
+
     public DateTime UpdatedDateTime { get; }
 
     public static MenuReview Create(

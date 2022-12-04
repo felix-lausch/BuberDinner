@@ -1,5 +1,4 @@
-﻿
-namespace BuberDinner.domain.UserAggregate.ValueObjects;
+﻿namespace BuberDinner.domain.UserAggregate.ValueObjects;
 
 using BuberDinner.domain.Common.Models;
 using System;

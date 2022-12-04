@@ -85,3 +85,36 @@ csharp_style_expression_bodied_lambdas = true:silent
 csharp_style_expression_bodied_local_functions = false:silent
 csharp_style_throw_expression = true:suggestion
 csharp_space_around_binary_operators = before_and_after
+
+# SA1633: File must have header
+dotnet_diagnostic.SA1633.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1300: The name of a C# element does not begin with an upper-case letter.
+dotnet_diagnostic.SA1300.severity = none
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = none
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = none
+
+# SA1201: Constrctor should not follow property
+dotnet_diagnostic.SA1201.severity = none
+
+# SA1208: Using directives for System should be placed before others
+dotnet_diagnostic.SA1208.severity = none
+
+# SA0001: XML comment style
+dotnet_diagnostic.SA001.severity = none
+
+# SA1601: Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = none
+
+# SA1602: Enums should be documented
+dotnet_diagnostic.SA1602.severity = none
+
+# CS1591: XML Comment for public type
+dotnet_diagnostic.CS1591.severity = none

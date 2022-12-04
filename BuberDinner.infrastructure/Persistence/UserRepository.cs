@@ -5,20 +5,20 @@ namespace BuberDinner.infrastructure.Persistence;
 
 public class UserRepository : IUserRepository
 {
-    private static readonly List<User> users = new();
+    private static readonly List<User> Users = new();
 
     public void Add(User user)
     {
-        users.Add(user);
+        Users.Add(user);
     }
 
     public User? GetUserByEmail(string email)
     {
-        return users.SingleOrDefault(user => user.Email == email);
+        return Users.SingleOrDefault(user => user.Email == email);
     }
 
     internal static void ClearRepo()
     {
-        users.Clear();
+        Users.Clear();
     }
 }

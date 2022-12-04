@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 public class ErrorController : ControllerBase
 {
-    [Route("/error")] 
+    [Route("/error")]
     public IActionResult Error()
     {
         var exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;

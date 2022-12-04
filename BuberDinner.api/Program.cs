@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 {
-    //app.UseMiddleware<ErrorHandlingMiddleware>();// Exception handling via middleware
+    // app.UseMiddleware<ErrorHandlingMiddleware>();// Exception handling via middleware
     app.UseExceptionHandler("/error"); // Exception handling via error controller
     app.UseHttpsRedirection();
     app.MapControllers();

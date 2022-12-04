@@ -7,9 +7,9 @@ public sealed class Rating : ValueObject
 {
     public double Value { get; private set; }
 
-    public Rating(double Value)
+    public Rating(double value)
     {
-        this.Value = Value;
+        Value = value;
     }
 
     public override IEnumerable<object> GetEqualityComponents()

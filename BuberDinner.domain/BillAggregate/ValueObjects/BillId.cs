@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 public class BillId : ValueObject
 {
-    public Guid Value { get; }
-
     public BillId(Guid value)
     {
         Value = value;
     }
+
+    public Guid Value { get; }
 
     public static BillId CreateUnique()
     {
