@@ -1,10 +1,7 @@
 ﻿namespace BuberDinner.application.Common.Behaviors;
 
-using BuberDinner.application.Authentication.Commands;
-using BuberDinner.application.Services.Authentication.Common;
 using ErrorOr;
 using FluentValidation;
-using FluentValidation.Results;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +17,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         this.validator = validator;
     }
 
-    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         if (validator is null)
         {
