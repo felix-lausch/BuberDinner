@@ -9,11 +9,14 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-
 public class IntegrationTest
 {
-    protected readonly HttpClient httpClient;
-    protected readonly JsonSerializerOptions jsonSerializerOptions = new();
+    private readonly HttpClient httpClient;
+    private readonly JsonSerializerOptions jsonSerializerOptions = new();
+
+    protected HttpClient HttpClient => httpClient;
+
+    protected JsonSerializerOptions JsonSerializerOptions => jsonSerializerOptions;
 
     public IntegrationTest()
     {
@@ -42,14 +45,13 @@ public class IntegrationTest
             "TestFirstName",
             "TestLastName",
             "TestEmail@mail.com",
-            "TestPassword"
-        );
+            "TestPassword");
 
-        var response = await httpClient.PostAsJsonAsync("auth/register", request, jsonSerializerOptions);
+        var response = await HttpClient.PostAsJsonAsync("auth/register", request, JsonSerializerOptions);
 
         var rawRes = await response.Content.ReadAsStringAsync();
 
-        var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(jsonSerializerOptions);
+        var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(JsonSerializerOptions);
         return responseBody!;
     }
 }

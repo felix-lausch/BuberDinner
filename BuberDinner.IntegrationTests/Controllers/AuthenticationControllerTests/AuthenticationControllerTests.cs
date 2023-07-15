@@ -4,7 +4,6 @@ using BuberDinner.Contracts.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-
 [TestClass]
 public class AuthenticationControllerTests : IntegrationTest
 {
@@ -15,15 +14,14 @@ public class AuthenticationControllerTests : IntegrationTest
             "TestFirstName",
             "TestLastName",
             "TestEmail@mail.com",
-            "TestPassword"
-        );
+            "TestPassword");
 
-        var response = await httpClient.PostAsJsonAsync("auth/register", request, jsonSerializerOptions);
+        var response = await HttpClient.PostAsJsonAsync("auth/register", request, JsonSerializerOptions);
 
         Assert.IsNotNull(response);
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
-        var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(jsonSerializerOptions);
+        var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(JsonSerializerOptions);
 
         Assert.IsNotNull(responseBody);
         Assert.AreNotEqual(Guid.Empty, responseBody.Id);
@@ -42,15 +40,14 @@ public class AuthenticationControllerTests : IntegrationTest
             "TestFirstName",
             "TestLastName",
             "TestEmail@mail.com",
-            "TestPassword"
-        );
+            "TestPassword");
 
-        var response = await httpClient.PostAsJsonAsync("auth/register", request, jsonSerializerOptions);
+        var response = await HttpClient.PostAsJsonAsync("auth/register", request, JsonSerializerOptions);
 
         Assert.IsNotNull(response);
         Assert.AreEqual(HttpStatusCode.Conflict, response.StatusCode);
 
-        var responseBody = await response.Content.ReadFromJsonAsync<ProblemDetails>(jsonSerializerOptions);
+        var responseBody = await response.Content.ReadFromJsonAsync<ProblemDetails>(JsonSerializerOptions);
 
         Assert.IsNotNull(responseBody);
         Assert.AreEqual("Email is already in use.", responseBody.Title);
@@ -63,15 +60,14 @@ public class AuthenticationControllerTests : IntegrationTest
 
         var request = new LoginRequest(
             "TestEmail@mail.com",
-            "TestPassword"
-        );
+            "TestPassword");
 
-        var response = await httpClient.PostAsJsonAsync("auth/login", request, jsonSerializerOptions);
+        var response = await HttpClient.PostAsJsonAsync("auth/login", request, JsonSerializerOptions);
 
         Assert.IsNotNull(response);
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
-        var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(jsonSerializerOptions);
+        var responseBody = await response.Content.ReadFromJsonAsync<AuthenticationResponse>(JsonSerializerOptions);
 
         Assert.IsNotNull(responseBody);
         Assert.AreNotEqual(Guid.Empty, responseBody.Id);
@@ -86,15 +82,14 @@ public class AuthenticationControllerTests : IntegrationTest
     {
         var request = new LoginRequest(
             "TestEmail@mail.com",
-            "TestPassword"
-        );
+            "TestPassword");
 
-        var response = await httpClient.PostAsJsonAsync("auth/login", request, jsonSerializerOptions);
+        var response = await HttpClient.PostAsJsonAsync("auth/login", request, JsonSerializerOptions);
 
         Assert.IsNotNull(response);
         Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
 
-        var responseBody = await response.Content.ReadFromJsonAsync<ProblemDetails>(jsonSerializerOptions);
+        var responseBody = await response.Content.ReadFromJsonAsync<ProblemDetails>(JsonSerializerOptions);
 
         Assert.IsNotNull(responseBody);
         Assert.AreEqual("Invalid credentials.", responseBody.Title);
@@ -107,15 +102,14 @@ public class AuthenticationControllerTests : IntegrationTest
 
         var request = new LoginRequest(
             "TestEmail@mail.com",
-            "InvalidTestPassword"
-        );
+            "InvalidTestPassword");
 
-        var response = await httpClient.PostAsJsonAsync("auth/login", request, jsonSerializerOptions);
+        var response = await HttpClient.PostAsJsonAsync("auth/login", request, JsonSerializerOptions);
 
         Assert.IsNotNull(response);
         Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
 
-        var responseBody = await response.Content.ReadFromJsonAsync<ProblemDetails>(jsonSerializerOptions);
+        var responseBody = await response.Content.ReadFromJsonAsync<ProblemDetails>(JsonSerializerOptions);
 
         Assert.IsNotNull(responseBody);
         Assert.AreEqual("Invalid credentials.", responseBody.Title);
