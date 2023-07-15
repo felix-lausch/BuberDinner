@@ -36,4 +36,10 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
     {
         return Equals((object?)other);
     }
+
+#pragma warning disable CS8618
+    protected Entity()
+    {
+    }
+#pragma warning restore CS8618
 }

@@ -20,9 +20,9 @@ public sealed class MenuSection : Entity<MenuSectionId>
         this.items = items;
     }
 
-    public string Name { get; }
+    public string Name { get; private set; }
 
-    public string Description { get; }
+    public string Description { get; private set; }
 
     public IReadOnlyList<MenuItem> Items => items.AsReadOnly();
 
@@ -30,4 +30,10 @@ public sealed class MenuSection : Entity<MenuSectionId>
     {
         return new(MenuSectionId.CreateUnique(), name, description, items);
     }
+
+#pragma warning disable CS8618
+    private MenuSection()
+    {
+    }
+#pragma warning restore CS8618
 }

@@ -124,3 +124,6 @@ dotnet_diagnostic.SA1005.severity = none
 
 # SA1116: Parameters should begin on the line after declaration, when it spans multiple lines
 dotnet_diagnostic.SA1116.severity = none
+
+[*/Migrations/*]
+generated_code = true

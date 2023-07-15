@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 public sealed class AverageRating : ValueObject
 {
-    private float? value;
+    private double? value;
 
-    private AverageRating(float value, int ratingsCount)
+    private AverageRating(double value, int ratingsCount)
     {
         Value = value;
         RatingsCount = ratingsCount;
     }
 
-    public float? Value
+    public double? Value
     {
         get
         {
@@ -25,7 +25,7 @@ public sealed class AverageRating : ValueObject
 
     public int RatingsCount { get; private set; }
 
-    public static AverageRating CreateNew(float rating = 0, int ratingCount = 0)
+    public static AverageRating CreateNew(double rating = 0, int ratingCount = 0)
     {
         return new AverageRating(rating, ratingCount);
     }
@@ -44,5 +44,9 @@ public sealed class AverageRating : ValueObject
     {
         yield return Value ?? 0;
         yield return RatingsCount;
+    }
+
+    private AverageRating()
+    {
     }
 }
