@@ -1,7 +1,7 @@
 ﻿namespace BuberDinner.IntegrationTests;
 
 using BuberDinner.Contracts.Authentication;
-using BuberDinner.infrastructure.Persistence;
+using BuberDinner.infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;

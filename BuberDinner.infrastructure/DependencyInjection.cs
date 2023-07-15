@@ -5,7 +5,9 @@ using BuberDinner.application.Common.Interfaces.Persistence;
 using BuberDinner.application.Common.Interfaces.Services;
 using BuberDinner.infrastructure.Auth;
 using BuberDinner.infrastructure.Persistence;
+using BuberDinner.infrastructure.Persistence.Repositories;
 using BuberDinner.infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +21,8 @@ public static class DependencyInjection
 
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+
+        services.AddDbContext<BuberDinnerDbContext>(options => options.UseSqlServer());
 
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMenuRepository, MenuRepository>();

@@ -8,7 +8,7 @@ public class MenuItemId : ValueObject
 {
     public Guid Value { get; }
 
-    public MenuItemId(Guid value)
+    private MenuItemId(Guid value)
     {
         Value = value;
     }
@@ -16,6 +16,11 @@ public class MenuItemId : ValueObject
     public static MenuItemId CreateUnique()
     {
         return new MenuItemId(Guid.NewGuid());
+    }
+
+    public static MenuItemId Create(Guid menuItemId)
+    {
+        return new MenuItemId(menuItemId);
     }
 
     public override IEnumerable<object> GetEqualityComponents()

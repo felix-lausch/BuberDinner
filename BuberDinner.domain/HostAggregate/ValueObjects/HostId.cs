@@ -8,7 +8,7 @@ public class HostId : ValueObject
 {
     public Guid Value { get; }
 
-    public HostId(Guid value)
+    private HostId(Guid value)
     {
         Value = value;
     }
@@ -16,6 +16,11 @@ public class HostId : ValueObject
     public static HostId CreateUnique()
     {
         return new HostId(Guid.NewGuid());
+    }
+
+    public static HostId Create(Guid hostId)
+    {
+        return new HostId(hostId);
     }
 
     public static HostId Create(string hostId)

@@ -8,9 +8,14 @@ public class MenuSectionId : ValueObject
 {
     public Guid Value { get; }
 
-    public MenuSectionId(Guid value)
+    private MenuSectionId(Guid value)
     {
         Value = value;
+    }
+
+    public static MenuSectionId Create(Guid menuSectionId)
+    {
+        return new MenuSectionId(menuSectionId);
     }
 
     public static MenuSectionId CreateUnique()
